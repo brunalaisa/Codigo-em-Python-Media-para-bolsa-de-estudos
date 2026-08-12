@@ -1,0 +1,29 @@
+
+def calcular_media(notas):
+    return sum(notas) / 4
+
+
+def validar_inscricao(notas):
+    idade = int(input("Idade: "))
+    renda = float(input("Renda familiar: "))
+
+    media = calcular_media(notas)
+
+    if media > 8:
+        if idade < 18:
+            categoria = "Candidato Prioritário"
+        elif idade < 25:
+            categoria = "Candidato Bolsista"
+    else:
+        categoria = "Não aprovado"
+
+    if renda < 2000:
+        categoria = categoria + " (Baixa renda)"
+
+    return media, categoria
+
+
+def imprimir_relatorio(nome, media, categoria):
+    print("\nNome:", nome)
+    print("Média:", round(media, 2))
+    print("Categoria:", categoria)
